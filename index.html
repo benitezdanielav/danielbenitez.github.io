@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Benitez — Exploración Compositiva Algorítmica</title>
+
+  <style>
+    :root {
+      --bg: #14161a;
+      --bg-menu: #0f1114;
+      --accent: #ff7a18;
+      --text: #e8e8e8;
+      --muted: #9a9a9a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      width: 100%;
+      background: var(--bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid #1f2227;
+    }
+
+    .logo {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .menu-toggle {
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--text);
+    }
+
+    /* NAV */
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100vh;
+      background: var(--bg-menu);
+      display: flex;
+      flex-direction: column;
+      padding-top: 6rem;
+      transition: right .3s ease;
+      z-index: 999;
+    }
+
+    nav.active {
+      right: 0;
+    }
+
+    nav a {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #1f2227;
+      color: var(--text);
+    }
+
+    nav a:hover {
+      background: #1c1f25;
+      color: var(--accent);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 6rem 2rem 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 3rem;
+      max-width: 800px;
+    }
+
+    /* PROJECT BLOCK */
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    /* MOBILE DEFAULT: VIDEO FIRST */
+
+    .project-video {
+      order: 1;
+    }
+
+    .project-text {
+      order: 2;
+    }
+
+    .project-text h3 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .project iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+
+    /* DESKTOP */
+
+    @media(min-width:768px) {
+
+      .project {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .project-text {
+        order: 1;
+        flex: 1;
+      }
+
+      .project-video {
+        order: 2;
+        flex: 1;
+      }
+
+    }
+
+    /* FADE */
+
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CONTACT */
+
+    #contact p {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      border-top: 1px solid #1f2227;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Daniel Benitez</div>
+    <button class="menu-toggle">☰</button>
+  </header>
+
+  <nav id="nav">
+    <a href="#about">Sobre mí</a>
+    <a href="#sistemas">Sistemas audiovisuales</a>
+    <a href="#autorretrato">Autorretrato algorítmico</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+
+  <!-- FRASE EJE + SOBRE MI -->
+
+  <section id="about" class="fade">
+    <h1>
+      Investigo formas de composición donde sonido e imagen se construyen a partir de procesos algorítmicos y
+      comportamientos en tiempo real.
+    </h1>
+
+    <p class="section-intro">
+      Mi práctica surge de la necesidad de replantear la composición musical más allá de la estructura tradicional.
+      Trabajo desarrollando sistemas audiovisuales donde sonido e imagen emergen como procesos y comportamientos en
+      tiempo real. Cada pieza funciona como un entorno abierto: la composición deja de estar escrita en una partitura y
+      pasa a configurarse en el diseño del sistema que la produce.
+    </p>
+  </section>
+
+  <!-- SISTEMAS AUDIOVISUALES -->
+
+  <section id="sistemas">
+
+    <h2 class="fade">Sistemas audiovisuales</h2>
+
+    <p class="section-intro fade">
+      Conjunto de composiciones generativas donde el sonido y la imagen se desarrollan a partir de reglas y
+      comportamientos programados. Cada sistema propone un espacio temporal propio, donde la variación surge de la
+      interacción interna de sus elementos.
+    </p>
+
+    <!-- Sistema 1 -->
+
+    <div class="project fade">
+
+      <div class="project-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/p5rTlxFQDMA?si=WT_AKFGZFVdQqbMk"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <div class="project-text">
+        <h3>Un día nublado</h3>
+        <p>
+          Sistema compositivo basado en síntesis y estructuras rítmicas algorítmicas. El entorno sonoro se construye a
+          partir de capas atmosféricas, pulsos irregulares y líneas melódicas que emergen como variaciones internas del
+          sistema.
+          <br><br>
+          En la dimensión visual, cada comportamiento sonoro activa transformaciones específicas: expansiones,
+          variaciones cromáticas y desplazamientos estructurales que configuran un clima inestable y en transformación
+          constante.
+          <br><br>
+          La pieza se desarrolla como un estado atmosférico donde la composición aparece como proceso más que como forma
+          cerrada.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Sistema 2 -->
+
+    <div class="project fade">
+
+      <div class="project-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/e7NXUsm3x5o?si=hsACCUIiv6Iop9jT"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <div class="project-text">
+        <h3>Deriva modal</h3>
+        <p>
+          Composición basada en acumulaciones armónicas derivadas de modos musicales. La estructura evita el pulso
+          definido y se desarrolla por superposición y densidad, permitiendo que la variación surja de la interacción
+          interna del sistema.
+          <br><br>
+          Visualmente, un cuerpo geométrico central y estructuras circundantes reaccionan a los umbrales dinámicos del
+          sonido, modificando escala, forma y materialidad.
+          <br><br>
+          La pieza propone un estado contemplativo donde el tiempo se percibe como transformación gradual.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- AUTORRETRATO -->
+
+  <section id="autorretrato">
+
+    <h2 class="fade">Autorretrato algorítmico</h2>
+
+    <p class="section-intro fade">
+      Serie en desarrollo donde utilizo datos derivados de mi propio cuerpo e imagen como material compositivo. El
+      sistema traduce información visual en parámetros sonoros y estructurales, desplazando la noción tradicional de
+      autorretrato hacia un territorio algorítmico.
+    </p>
+
+    <div class="project fade">
+
+      <div class="project-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VG6VudgNNlI?si=p3fyBNQSxShEa4T4"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <div class="project-text">
+        <h3>Huella sonora</h3>
+        <p>
+          Huella Sonora parte del escaneo de la palma de mi mano izquierda. Las líneas y surcos de la imagen son
+          procesados para extraer datos que luego se traducen en parámetros sonoros y estructurales.
+          <br><br>
+          La obra funciona como un sistema en tiempo real donde la información visual se convierte en comportamiento
+          sonoro. El autorretrato deja de representar una imagen fija para convertirse en proceso activo: la huella
+          produce sonido y transformación.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="contact" class="fade">
+    <h2>Contacto</h2>
+    <p>benitez.daniel.av@gmail.com</p>
+  </section>
+
+  <footer>
+    © MMXXVI - Daniel Benítez - Artista audiovisual - Based in Argentina
+
+  </footer>
+
+  <script>
+    const nav = document.getElementById("nav");
+    const toggle = document.querySelector(".menu-toggle");
+
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+      toggle.textContent = nav.classList.contains("active") ? "✕" : "☰";
+    });
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        toggle.textContent = "☰";
+      });
+    });
+
+    const faders = document.querySelectorAll(".fade");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .2 });
+
+    faders.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>
